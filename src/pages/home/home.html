@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <music-item navPush="DetailPage" [navParams]="{'track': track}" [track]="track"></music-item>
+  <button ion-button block logEvnt>Tap me and check the console</button>
+</ion-content>

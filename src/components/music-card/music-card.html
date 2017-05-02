@@ -1,0 +1,9 @@
+<ion-card>
+  <img [src]="track.images">
+  <ion-card-content>
+    <h1>{{track.name}}</h1>
+    <h2>{{track.artistName}}</h2>
+    <h3>{{track.album}}</h3>
+    <ion-note>{{track.duration_ms | msToMins}}</ion-note>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,11 @@
+<a ion-item detail-none>
+  <ion-thumbnail item-left>
+    <img [src]="track.images" alt="">
+  </ion-thumbnail>
+  <h2>{{track.name}}</h2>
+  <h3>{{track.artistsName}}</h3>
+  <p>{{track.album}}</p>
+  <ion-note item-right>
+    {{track.duration_ms | msToMins}}
+  </ion-note>
+</a>
