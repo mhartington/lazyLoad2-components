@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { HomePage } from './home';
-import {MusicItemComponentModule} from '../../components/music-item/music-item.module'
-import { LogEvntDirectiveModule } from '../../directives/log-evnt/log-evnt.module'
+import { ComponentsModule } from '../../components/components.module'
+import { DirectivesModule } from '../../directives/directives.module'
+
 @NgModule({
   declarations: [HomePage],
   imports: [
-    LogEvntDirectiveModule,
-    MusicItemComponentModule,
+    DirectivesModule,
+    ComponentsModule,
     IonicPageModule.forChild(HomePage)
   ]
 })
