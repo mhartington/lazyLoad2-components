@@ -1,23 +1,32 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
-
+import { SpotifyProvider } from '../../providers/spotify/spotify'
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public track = {
-    "artistName": "Adele",
-    "images": "https://i.scdn.co/image/797009754c30847254b48de483f256258d90df7f",
-    "name": "Hello",
-    "album": "Hello",
-    "duration_ms": 295493,
-    "preview_url": "https://p.scdn.co/mp3-preview/0b90429fd554bad6785faa2b8931d613db4a0ee4?cid=null"
+  public tracks;
+  public searchForm: FormGroup
+
+  constructor(
+    public navCtrl: NavController,
+    public fb: FormBuilder,
+    public spotify: SpotifyProvider
+  ) {
+      this.searchForm = this.fb.group({
+        'term': ['', Validators.required]
+      })
   }
 
-  constructor(public navCtrl: NavController) {
+  formSubmit(){
+    let term = this.searchForm.get('term').value;
+    this.spotify.load(term).subscribe(
+      results => this.tracks = results.tracks.items,
+      err => this.tracks = [],
 
+    )
   }
-
 }

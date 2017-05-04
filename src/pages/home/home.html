@@ -4,8 +4,13 @@
       Ionic Blank
     </ion-title>
   </ion-navbar>
+  <ion-toolbar>
+    <form [formGroup]="searchForm" (ngSubmit)="formSubmit()">
+        <ion-searchbar formControlName="term"></ion-searchbar>
+    </form>
+  </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <music-item navPush="DetailPage" [navParams]="{'track': track}" [track]="track"></music-item>
+  <music-item navPush="DetailPage" *ngFor="let track of tracks" [navParams]="{'track': track}" [track]="track"></music-item>
   <button ion-button block logEvnt>Tap me and check the console</button>
 </ion-content>
